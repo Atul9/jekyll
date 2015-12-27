@@ -120,7 +120,7 @@ module Jekyll
     #
     # Returns true if the YAML front matter is present.
     def has_yaml_header?(file)
-      !!(File.open(file, 'rb') { |f| f.read(5) } =~ /\A---\r?\n/)
+      !!(File.open(file, 'rb') { |f| f.readline } =~ /\A---\s*\r?\n/)
     end
 
     # Slugify a filename or title.
